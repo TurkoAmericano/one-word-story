@@ -1,0 +1,86 @@
+.landing {
+  min-height: calc(100vh - 70px);
+  padding: 60px 0;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn-lg {
+  padding: 14px 32px;
+  font-size: 18px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin: 60px 0;
+}
+
+.feature-card {
+  background: var(--bg-white);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.feature-card h3 {
+  color: var(--primary-color);
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.how-it-works {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.how-it-works h2 {
+  font-size: 36px;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+}
+
+.steps {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  list-style-position: inside;
+}
+
+.steps li {
+  font-size: 18px;
+  color: var(--text-secondary);
+  padding: 12px 0;
+  line-height: 1.6;
+}

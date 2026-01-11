@@ -1,0 +1,90 @@
+.story-view {
+  min-height: calc(100vh - 70px);
+  padding: 40px 0;
+}
+
+.story-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.invite-form-card {
+  background: var(--bg-white);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+.invite-form-card h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.email-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.email-input-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.email-input-row .input {
+  flex: 1;
+}
+
+.participants-card {
+  background: var(--bg-white);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.participants-card h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.participants-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.participant-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: var(--bg-light);
+  border-radius: 6px;
+}
+
+.participant-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.participant-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.participant-turn {
+  font-size: 14px;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,68 @@
+.word-input-card {
+  background: var(--bg-white);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+.your-turn-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.waiting-message {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.story-ended-message {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  background: var(--bg-light);
+  border-radius: 6px;
+}
+
+.word-input-form {
+  margin-bottom: 20px;
+}
+
+.word-input-group {
+  display: flex;
+  gap: 12px;
+}
+
+.word-input {
+  flex: 1;
+  font-size: 18px;
+  padding: 14px 16px;
+}
+
+.word-input-group .btn {
+  padding: 14px 32px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.end-story-section {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.end-story-hint {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  font-size: 14px;
+}

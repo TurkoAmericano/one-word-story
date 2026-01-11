@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: one-word-story-db
+    environment:
+      POSTGRES_DB: one_word_story
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devuser -d one_word_story"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: one-word-story-mail
+    ports:
+      - "1025:1025"  # SMTP server
+      - "8025:8025"  # Web UI
+    logging:
+      driver: none  # Disable logs to reduce noise
+
+volumes:
+  postgres_data:
