@@ -23,8 +23,8 @@ source .env
 set +a
 
 # Validate required variables
-if [ -z "$POSTGRES_PASSWORD" ]; then
-    echo "Error: POSTGRES_PASSWORD is required in .env"
+if [ -z "$DATABASE_URL" ]; then
+    echo "Error: DATABASE_URL is required in .env"
     exit 1
 fi
 
