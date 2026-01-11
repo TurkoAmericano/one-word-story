@@ -1,25 +1,4 @@
-version: '3.8'
-
 services:
-  # PostgreSQL Database
-  db:
-    image: postgres:15-alpine
-    container_name: ows-db
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB:-one_word_story}
-      POSTGRES_USER: ${POSTGRES_USER:-owsuser}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Database password required}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-owsuser} -d ${POSTGRES_DB:-one_word_story}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - ows-network
-
   # Node.js Backend API
   backend:
     build:
@@ -28,7 +7,7 @@ services:
     container_name: ows-backend
     restart: unless-stopped
     environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER:-owsuser}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-one_word_story}
+      DATABASE_URL: ${DATABASE_URL:?Database URL required}
       PORT: 3000
       NODE_ENV: production
       JWT_SECRET: ${JWT_SECRET:?JWT secret required}
@@ -43,9 +22,6 @@ services:
       FRONTEND_URL: ${FRONTEND_URL:-http://localhost}
       RATE_LIMIT_WINDOW_MS: ${RATE_LIMIT_WINDOW_MS:-900000}
       RATE_LIMIT_MAX_REQUESTS: ${RATE_LIMIT_MAX_REQUESTS:-100}
-    depends_on:
-      db:
-        condition: service_healthy
     networks:
       - ows-network
 
@@ -94,7 +70,6 @@ services:
       - ows-network
 
 volumes:
-  postgres_data:
   frontend_dist:
 
 networks:
