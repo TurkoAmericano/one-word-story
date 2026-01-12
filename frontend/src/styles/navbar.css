@@ -1,10 +1,11 @@
 .navbar {
-  background-color: var(--bg-white);
-  box-shadow: var(--shadow);
-  padding: 15px 0;
+  background-color: var(--bg-leather);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  padding: 16px 0;
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 3px solid var(--primary-color);
 }
 
 .navbar-content {
@@ -14,40 +15,85 @@
 }
 
 .navbar-brand {
-  font-size: 24px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--bg-cream);
   text-decoration: none;
+  letter-spacing: 0.02em;
+  position: relative;
+  padding: 4px 0;
+  border-bottom: none;
+}
+
+.navbar-brand::before {
+  content: '';
+  font-size: 14px;
+  color: var(--accent-gold);
+  margin-right: 8px;
 }
 
 .navbar-brand:hover {
+  color: var(--accent-gold);
   text-decoration: none;
+  border-bottom: none;
 }
 
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 28px;
 }
 
 .nav-link {
-  color: var(--text-primary);
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--bg-cream);
   text-decoration: none;
+  font-size: 17px;
   font-weight: 500;
-  transition: color 0.2s ease;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
 }
 
 .nav-link:hover {
-  color: var(--primary-color);
+  color: var(--accent-gold);
   text-decoration: none;
+  border-bottom-color: var(--accent-gold);
 }
 
 .nav-user {
   display: flex;
   align-items: center;
+  gap: 16px;
 }
 
 .nav-username {
-  color: var(--text-secondary);
+  font-family: 'Crimson Text', Georgia, serif;
+  color: var(--bg-parchment);
   font-weight: 500;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.nav-username::before {
+  content: 'Welcome, ';
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+/* Logout button styling */
+.navbar .btn {
+  background-color: transparent;
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.navbar .btn:hover {
+  background-color: var(--accent-gold);
+  color: var(--bg-leather);
 }

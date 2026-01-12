@@ -1,43 +1,59 @@
 .story-view {
-  min-height: calc(100vh - 70px);
-  padding: 40px 0;
+  min-height: calc(100vh - 80px);
+  padding: 48px 0;
 }
 
 .story-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .action-buttons {
   display: flex;
-  gap: 12px;
+  gap: 14px;
 }
 
 .invite-form-card {
   background: var(--bg-white);
-  border-radius: 8px;
-  padding: 24px;
+  border: 1px solid var(--border-color);
+  padding: 28px;
   box-shadow: var(--shadow);
-  margin-bottom: 30px;
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.invite-form-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent-gold);
 }
 
 .invite-form-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   color: var(--text-primary);
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .email-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .email-input-row {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
 }
 
@@ -47,30 +63,44 @@
 
 .participants-card {
   background: var(--bg-white);
-  border-radius: 8px;
-  padding: 24px;
+  border: 1px solid var(--border-color);
+  padding: 28px;
   box-shadow: var(--shadow);
+  position: relative;
+}
+
+.participants-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--secondary-color);
 }
 
 .participants-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   color: var(--text-primary);
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .participants-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .participant-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
-  background: var(--bg-light);
-  border-radius: 6px;
+  padding: 14px 16px;
+  background: var(--bg-parchment);
+  border: 1px solid var(--border-color);
 }
 
 .participant-info {
@@ -80,11 +110,28 @@
 }
 
 .participant-name {
+  font-family: 'EB Garamond', Georgia, serif;
   font-weight: 600;
   color: var(--text-primary);
+  font-size: 17px;
 }
 
 .participant-turn {
+  font-family: 'Crimson Text', Georgia, serif;
   font-size: 14px;
   color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Current turn indicator */
+.participant-item.current-turn {
+  background: var(--bg-white);
+  border-left: 4px solid var(--accent-gold);
+}
+
+.participant-item.current-turn .participant-name::after {
+  content: ' (writing...)';
+  color: var(--accent-gold);
+  font-style: italic;
+  font-weight: normal;
 }

@@ -1,56 +1,110 @@
 .auth-page {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
-  padding: 40px 0;
+  padding: 48px 0;
 }
 
 .auth-card {
-  max-width: 450px;
+  max-width: 480px;
   margin: 0 auto;
   background: var(--bg-white);
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: var(--shadow-lg);
+  padding: 48px 44px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-book);
+  position: relative;
+}
+
+.auth-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
+}
+
+.auth-card::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid var(--border-color);
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .auth-title {
-  font-size: 32px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 36px;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   text-align: center;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
 }
 
 .auth-subtitle {
+  font-family: 'Crimson Text', Georgia, serif;
   color: var(--text-secondary);
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 36px;
+  font-size: 18px;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
+  position: relative;
+  z-index: 1;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .form-group label {
-  font-weight: 500;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 600;
   color: var(--text-primary);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .btn-block {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .auth-footer {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
   color: var(--text-secondary);
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 17px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-footer a {
+  font-weight: 600;
+}
+
+/* Decorative ornament */
+.auth-card .ornament {
+  margin: 24px 0;
+  font-size: 18px;
 }
