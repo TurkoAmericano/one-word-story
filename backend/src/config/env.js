@@ -33,4 +33,6 @@ export const config = {
     windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000', 10),
     max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100', 10),
   },
+
+  adminEmail: process.env.ADMIN_EMAIL || null,
 };

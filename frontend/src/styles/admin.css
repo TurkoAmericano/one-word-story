@@ -1,0 +1,185 @@
+.admin-dashboard {
+  min-height: calc(100vh - 80px);
+  padding: 48px 0;
+}
+
+.admin-header {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.admin-header h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  margin-top: 12px;
+}
+
+.admin-subtitle {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 18px;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 16px;
+}
+
+.admin-section {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  margin-bottom: 32px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.user-count {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.users-table-wrapper {
+  overflow-x: auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Crimson Text', Georgia, serif;
+}
+
+.users-table th {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--border-color);
+  background: var(--bg-parchment);
+}
+
+.users-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.users-table tr:hover {
+  background: var(--bg-parchment);
+}
+
+.users-table tr.current-user {
+  background: rgba(139, 69, 19, 0.05);
+}
+
+.username-cell {
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.you-badge {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary-color);
+  background: rgba(139, 69, 19, 0.1);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.email-cell {
+  color: var(--text-secondary);
+}
+
+.date-cell {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 12px;
+}
+
+/* Messages */
+.error-message {
+  background: rgba(139, 0, 0, 0.1);
+  border: 1px solid var(--danger-color);
+  color: var(--danger-color);
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  font-family: 'Crimson Text', Georgia, serif;
+}
+
+.success-message {
+  background: rgba(46, 90, 28, 0.1);
+  border: 1px solid #2E5A1C;
+  color: #2E5A1C;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  font-family: 'Crimson Text', Georgia, serif;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-header h1 {
+    font-size: 32px;
+  }
+
+  .users-table th,
+  .users-table td {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .actions-cell {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .btn-sm {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+}

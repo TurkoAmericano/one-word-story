@@ -10,6 +10,9 @@ import StoryView from './pages/StoryView';
 import CreateStory from './pages/CreateStory';
 import AcceptInvite from './pages/AcceptInvite';
 import VerifyEmail from './pages/VerifyEmail';
+import AdminDashboard from './pages/AdminDashboard';
+
+const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL;
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -29,6 +32,24 @@ const PublicRoute = ({ children }) => {
   }
 
   return !isAuthenticated ? children : <Navigate to="/dashboard" />;
+};
+
+const AdminRoute = ({ children }) => {
+  const { user, isAuthenticated, loading } = useAuth();
+
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
+
+  if (!ADMIN_EMAIL || user?.email !== ADMIN_EMAIL) {
+    return <Navigate to="/dashboard" />;
+  }
+
+  return children;
 };
 
 function AppRoutes() {
@@ -84,6 +105,14 @@ function AppRoutes() {
             <PrivateRoute>
               <AcceptInvite />
             </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
           }
         />
         <Route path="*" element={<Navigate to="/" />} />

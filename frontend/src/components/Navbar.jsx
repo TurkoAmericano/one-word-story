@@ -3,9 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/navbar.css';
 
+const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL;
+
 const Navbar = () => {
   const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
+  const isAdmin = isAuthenticated && ADMIN_EMAIL && user?.email === ADMIN_EMAIL;
 
   const handleLogout = () => {
     logout();
@@ -28,6 +31,11 @@ const Navbar = () => {
               <Link to="/create" className="nav-link">
                 Create Story
               </Link>
+              {isAdmin && (
+                <Link to="/admin" className="nav-link nav-admin">
+                  Admin
+                </Link>
+              )}
               <div className="nav-user">
                 <span className="nav-username">{user?.username}</span>
                 {!user?.emailVerified && (

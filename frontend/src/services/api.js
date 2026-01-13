@@ -63,4 +63,11 @@ export const invitationAPI = {
   getPendingInvitations: (storyId) => api.get(`/invitations/stories/${storyId}/pending`),
 };
 
+// Admin endpoints
+export const adminAPI = {
+  getUsers: () => api.get('/admin/users'),
+  deleteUser: (userId) => api.delete(`/admin/users/${userId}`),
+  resendVerification: (userId) => api.post(`/admin/users/${userId}/resend-verification`),
+};
+
 export default api;
