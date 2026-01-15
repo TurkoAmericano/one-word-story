@@ -5,13 +5,21 @@ dotenv.config();
 
 const { Pool } = pg;
 
+// Configure SSL for production (AWS RDS)
+const sslConfig = process.env.NODE_ENV === 'production'
+  ? { rejectUnauthorized: false }
+  : false;
+
+// Remove sslmode from connection string if present (we handle SSL via config)
+const connectionString = process.env.DATABASE_URL?.replace(/[?&]sslmode=[^&]+/, '');
+
 // Create connection pool
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString,
   max: 20, // Maximum number of clients in the pool
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+  ssl: sslConfig,
 });
 
 // Handle pool errors
