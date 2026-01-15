@@ -7,6 +7,9 @@ const StoryCard = ({ story }) => {
     if (story.isEnded) {
       return <span className="badge badge-success">Completed</span>;
     }
+    if (story.needsMoreParticipants) {
+      return <span className="badge badge-waiting">Waiting for participants</span>;
+    }
     if (story.isYourTurn) {
       return <span className="badge badge-warning">Your Turn!</span>;
     }

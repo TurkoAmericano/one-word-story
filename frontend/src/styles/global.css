@@ -225,6 +225,12 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border-color);
 }
 
+.badge-waiting {
+  background-color: #F0E6F0;
+  color: #6B4C6B;
+  border: 1px solid #D4BED4;
+}
+
 a {
   color: var(--primary-color);
   text-decoration: none;
