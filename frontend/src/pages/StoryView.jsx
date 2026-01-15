@@ -10,6 +10,7 @@ const StoryView = () => {
   const navigate = useNavigate();
   const [story, setStory] = useState(null);
   const [participants, setParticipants] = useState([]);
+  const [pendingInvites, setPendingInvites] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [showInviteForm, setShowInviteForm] = useState(false);
@@ -20,6 +21,7 @@ const StoryView = () => {
   useEffect(() => {
     loadStory();
     loadParticipants();
+    loadPendingInvites();
   }, [id]);
 
   const loadStory = async () => {
@@ -40,6 +42,15 @@ const StoryView = () => {
       setParticipants(response.data.participants);
     } catch (err) {
       console.error('Failed to load participants:', err);
+    }
+  };
+
+  const loadPendingInvites = async () => {
+    try {
+      const response = await invitationAPI.getPendingInvitations(id);
+      setPendingInvites(response.data.invitations);
+    } catch (err) {
+      console.error('Failed to load pending invitations:', err);
     }
   };
 
@@ -88,8 +99,8 @@ const StoryView = () => {
       setInviteMessage(`${response.data.invitations.length} invitation(s) sent successfully!`);
       setInviteEmails(['']);
       setShowInviteForm(false);
+      loadPendingInvites();
 
-      // Optionally reload participants
       setTimeout(() => {
         setInviteMessage('');
       }, 3000);
@@ -213,7 +224,7 @@ const StoryView = () => {
         />
 
         <div className="participants-card">
-          <h3>Participants ({participants.length})</h3>
+          <h3>Participants ({participants.length + pendingInvites.length})</h3>
           <div className="participants-list">
             {participants.map((participant) => (
               <div key={participant.id} className="participant-item">
@@ -224,6 +235,15 @@ const StoryView = () => {
                 {story.currentTurn === participant.turnOrder && !story.isEnded && (
                   <span className="badge badge-warning">Current Turn</span>
                 )}
+              </div>
+            ))}
+            {pendingInvites.map((invite) => (
+              <div key={invite.id} className="participant-item participant-pending">
+                <div className="participant-info">
+                  <span className="participant-name">{invite.email}</span>
+                  <span className="participant-turn">Pending</span>
+                </div>
+                <span className="badge badge-waiting">Invited</span>
               </div>
             ))}
           </div>

@@ -135,3 +135,15 @@
   font-style: italic;
   font-weight: normal;
 }
+
+/* Pending invitation style */
+.participant-item.participant-pending {
+  background: var(--bg-white);
+  border-style: dashed;
+  opacity: 0.8;
+}
+
+.participant-item.participant-pending .participant-name {
+  color: var(--text-secondary);
+  font-weight: normal;
+}
