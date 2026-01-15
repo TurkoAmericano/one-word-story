@@ -84,21 +84,29 @@ export const getStories = async (req, res, next) => {
       [userId]
     );
 
-    const stories = result.rows.map(row => ({
-      id: row.id,
-      title: row.title,
-      isEnded: row.is_ended,
-      endedAt: row.ended_at,
-      createdAt: row.created_at,
-      createdBy: {
-        id: row.created_by,
-        username: row.creator_username,
-      },
-      wordCount: parseInt(row.word_count, 10),
-      participantCount: parseInt(row.participant_count, 10),
-      currentTurn: row.is_ended ? null : parseInt(row.word_count, 10) % parseInt(row.participant_count, 10),
-      isYourTurn: row.is_ended ? false : (parseInt(row.word_count, 10) % parseInt(row.participant_count, 10)) === row.user_turn_order,
-    }));
+    const stories = result.rows.map(row => {
+      const wordCount = parseInt(row.word_count, 10);
+      const participantCount = parseInt(row.participant_count, 10);
+      const currentTurnOrder = wordCount % participantCount;
+      const needsMoreParticipants = participantCount < 2 && wordCount > 0;
+
+      return {
+        id: row.id,
+        title: row.title,
+        isEnded: row.is_ended,
+        endedAt: row.ended_at,
+        createdAt: row.created_at,
+        createdBy: {
+          id: row.created_by,
+          username: row.creator_username,
+        },
+        wordCount,
+        participantCount,
+        currentTurn: row.is_ended ? null : currentTurnOrder,
+        isYourTurn: row.is_ended || needsMoreParticipants ? false : currentTurnOrder === row.user_turn_order,
+        needsMoreParticipants,
+      };
+    });
 
     res.json({ stories });
   } catch (error) {
@@ -192,6 +200,7 @@ export const getStory = async (req, res, next) => {
     const wordCount = words.length;
     const participantCount = participants.length;
     const currentTurnOrder = story.is_ended ? null : wordCount % participantCount;
+    const needsMoreParticipants = participantCount < 2 && wordCount > 0;
 
     res.json({
       story: {
@@ -213,7 +222,8 @@ export const getStory = async (req, res, next) => {
         wordCount,
         participantCount,
         currentTurn: currentTurnOrder,
-        isYourTurn: !story.is_ended && currentTurnOrder === userTurnOrder,
+        isYourTurn: !story.is_ended && !needsMoreParticipants && currentTurnOrder === userTurnOrder,
+        needsMoreParticipants,
       },
     });
   } catch (error) {
