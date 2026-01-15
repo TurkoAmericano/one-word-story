@@ -103,6 +103,36 @@
   font-weight: 600;
 }
 
+/* Password input with toggle */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper .input {
+  flex: 1;
+  padding-right: 60px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.password-toggle:hover {
+  color: var(--primary-color);
+}
+
 /* Decorative ornament */
 .auth-card .ornament {
   margin: 24px 0;
