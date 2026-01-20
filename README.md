@@ -92,6 +92,14 @@ cd frontend
 npm test
 ```
 
+## Database Access
+
+To run psql commands against the database from your host machine:
+
+```bash
+psql $DATABASE_URL -c "SELECT * FROM users"
+```
+
 ## Development Notes
 
 - The app uses JWT tokens for authentication
