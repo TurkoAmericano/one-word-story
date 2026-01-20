@@ -123,8 +123,12 @@ export const verifyEmail = async (req, res, next) => {
 
     const user = result.rows[0];
 
+    // Generate JWT so user is logged in after verification
+    const jwtToken = generateToken(user.id);
+
     res.json({
       message: 'Email verified successfully',
+      token: jwtToken,
       user: {
         id: user.id,
         email: user.email,

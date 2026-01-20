@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import { authAPI } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -7,7 +7,7 @@ const VerifyEmail = () => {
   const [searchParams] = useSearchParams();
   const [status, setStatus] = useState('verifying');
   const [message, setMessage] = useState('');
-  const { updateUser } = useAuth();
+  const { updateUser, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,8 +25,10 @@ const VerifyEmail = () => {
         setStatus('success');
         setMessage(response.data.message);
 
-        // Update user in context
-        if (response.data.user) {
+        // Log the user in with the returned token
+        if (response.data.token && response.data.user) {
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', JSON.stringify(response.data.user));
           updateUser(response.data.user);
         }
 
@@ -65,6 +67,11 @@ const VerifyEmail = () => {
           {status === 'error' && (
             <div className="error" style={{ textAlign: 'center', fontSize: '16px' }}>
               {message}
+              <p style={{ marginTop: '15px', color: 'var(--text-secondary)' }}>
+                <Link to="/login" style={{ color: 'var(--primary-color)' }}>
+                  Go to Login
+                </Link>
+              </p>
             </div>
           )}
         </div>
