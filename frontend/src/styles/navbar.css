@@ -1,11 +1,12 @@
 .navbar {
-  background-color: var(--bg-leather);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  padding: 16px 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(124, 58, 237, 0.1);
+  padding: 14px 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 3px solid var(--primary-color);
+  border-bottom: 2px solid rgba(233, 213, 255, 0.5);
 }
 
 .navbar-content {
@@ -15,10 +16,13 @@
 }
 
 .navbar-brand {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--bg-cream);
+  font-family: 'Fredericka the Great', 'Quicksand', cursive;
+  font-size: 24px;
+  font-weight: 400;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
   letter-spacing: 0.02em;
   position: relative;
@@ -26,15 +30,8 @@
   border-bottom: none;
 }
 
-.navbar-brand::before {
-  content: '';
-  font-size: 14px;
-  color: var(--accent-gold);
-  margin-right: 8px;
-}
-
 .navbar-brand:hover {
-  color: var(--accent-gold);
+  opacity: 0.8;
   text-decoration: none;
   border-bottom: none;
 }
@@ -42,58 +39,83 @@
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
 }
 
 .nav-link {
-  font-family: 'EB Garamond', Georgia, serif;
-  color: var(--bg-cream);
+  font-family: 'Quicksand', sans-serif;
+  color: var(--text-secondary);
   text-decoration: none;
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
   transition: color 0.3s ease;
-  padding: 4px 0;
-  border-bottom: 1px solid transparent;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
 }
 
 .nav-link:hover {
-  color: var(--accent-gold);
+  color: var(--primary-color);
   text-decoration: none;
+  border-bottom-color: var(--primary-color);
+}
+
+.nav-admin {
+  color: var(--accent-gold);
+}
+
+.nav-admin:hover {
+  color: var(--accent-gold-hover);
   border-bottom-color: var(--accent-gold);
 }
 
 .nav-user {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .nav-username {
-  font-family: 'Crimson Text', Georgia, serif;
-  color: var(--bg-parchment);
-  font-weight: 500;
-  font-style: italic;
-  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 14px;
+  background: var(--bg-magic);
+  border-radius: 50px;
 }
 
 .nav-username::before {
-  content: 'Welcome, ';
-  color: var(--text-muted);
-  font-style: normal;
+  content: '\2728 ';
+  font-size: 12px;
 }
 
 /* Logout button styling */
 .navbar .btn {
-  background-color: transparent;
-  border: 1px solid var(--accent-gold);
-  color: var(--accent-gold);
-  padding: 8px 20px;
-  font-size: 14px;
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 18px;
+  font-size: 13px;
+  border-radius: 50px;
 }
 
 .navbar .btn:hover {
-  background-color: var(--accent-gold);
-  color: var(--bg-leather);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #9333EA 100%);
+  color: white;
+  border-color: transparent;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    gap: 16px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .nav-username::before {
+    display: none;
+  }
 }

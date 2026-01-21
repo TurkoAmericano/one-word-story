@@ -1,0 +1,28 @@
+.footer {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(233, 213, 255, 0.5);
+  padding: 16px 0;
+  margin-top: auto;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-muted);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.footer a:hover {
+  color: var(--accent-pink);
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -54,8 +55,9 @@ const AdminRoute = ({ children }) => {
 
 function AppRoutes() {
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
+      <main style={{ flex: 1 }}>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route
@@ -117,7 +119,9 @@ function AppRoutes() {
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </>
+      </main>
+      <Footer />
+    </div>
   );
 }
 

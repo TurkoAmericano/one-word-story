@@ -1,29 +1,32 @@
 .story-view {
   min-height: calc(100vh - 80px);
-  padding: 48px 0;
+  padding: 40px 0;
 }
 
 .story-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 36px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed var(--border-color);
 }
 
 .action-buttons {
   display: flex;
-  gap: 14px;
+  gap: 12px;
 }
 
 .invite-form-card {
-  background: var(--bg-white);
-  border: 1px solid var(--border-color);
-  padding: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(233, 213, 255, 0.5);
+  border-radius: 20px;
+  padding: 24px;
   box-shadow: var(--shadow);
-  margin-bottom: 36px;
+  margin-bottom: 28px;
   position: relative;
+  overflow: hidden;
 }
 
 .invite-form-card::before {
@@ -33,27 +36,28 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background: var(--accent-gold);
+  background: linear-gradient(to bottom, var(--accent-gold), #FBBF24);
+  border-radius: 4px 0 0 4px;
 }
 
 .invite-form-card h3 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Quicksand', sans-serif;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   color: var(--text-primary);
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .email-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .email-input-row {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   align-items: center;
 }
 
@@ -62,11 +66,14 @@
 }
 
 .participants-card {
-  background: var(--bg-white);
-  border: 1px solid var(--border-color);
-  padding: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(233, 213, 255, 0.5);
+  border-radius: 20px;
+  padding: 24px;
   box-shadow: var(--shadow);
   position: relative;
+  overflow: hidden;
 }
 
 .participants-card::before {
@@ -76,74 +83,74 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background: var(--secondary-color);
+  background: linear-gradient(to bottom, var(--secondary-color), #14B8A6);
+  border-radius: 4px 0 0 4px;
 }
 
 .participants-card h3 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Quicksand', sans-serif;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   color: var(--text-primary);
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .participants-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 .participant-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 16px;
-  background: var(--bg-parchment);
-  border: 1px solid var(--border-color);
+  padding: 12px 16px;
+  background: var(--bg-magic);
+  border-radius: 12px;
+  border: none;
 }
 
 .participant-info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .participant-name {
-  font-family: 'EB Garamond', Georgia, serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 600;
   color: var(--text-primary);
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .participant-turn {
-  font-family: 'Crimson Text', Georgia, serif;
-  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
   color: var(--text-secondary);
-  font-style: italic;
 }
 
 /* Current turn indicator */
 .participant-item.current-turn {
-  background: var(--bg-white);
-  border-left: 4px solid var(--accent-gold);
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
 }
 
 .participant-item.current-turn .participant-name::after {
-  content: ' (writing...)';
+  content: ' \270D';
   color: var(--accent-gold);
-  font-style: italic;
-  font-weight: normal;
+  font-size: 14px;
 }
 
 /* Pending invitation style */
 .participant-item.participant-pending {
-  background: var(--bg-white);
-  border-style: dashed;
+  background: rgba(237, 233, 254, 0.5);
+  border: 1px dashed var(--primary-light);
   opacity: 0.8;
 }
 
 .participant-item.participant-pending .participant-name {
-  color: var(--text-secondary);
+  color: var(--text-muted);
   font-weight: normal;
 }

@@ -1,10 +1,13 @@
 .word-input-card {
-  background: var(--bg-white);
-  border: 1px solid var(--border-color);
-  padding: 28px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(233, 213, 255, 0.5);
+  border-radius: 20px;
+  padding: 24px;
   box-shadow: var(--shadow);
-  margin-bottom: 36px;
+  margin-bottom: 28px;
   position: relative;
+  overflow: hidden;
 }
 
 .word-input-card::before {
@@ -14,38 +17,39 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background: var(--accent-gold);
+  background: linear-gradient(to bottom, var(--accent-gold), #FBBF24);
+  border-radius: 4px 0 0 4px;
 }
 
 .your-turn-banner {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  color: var(--bg-cream);
-  padding: 18px 24px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-pink) 100%);
+  color: white;
+  padding: 16px 24px;
   text-align: center;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 24px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
   letter-spacing: 0.02em;
-  border: 1px solid var(--primary-hover);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
   position: relative;
 }
 
 .your-turn-banner::before {
-  content: '~ ';
+  content: '\2728 ';
 }
 
 .your-turn-banner::after {
-  content: ' ~';
+  content: ' \2728';
 }
 
 .waiting-message {
   text-align: center;
-  padding: 40px 24px;
+  padding: 36px 24px;
   color: var(--text-secondary);
-  font-family: 'Crimson Text', Georgia, serif;
-  font-size: 18px;
-  font-style: italic;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
 }
 
 .waiting-message::before {
@@ -54,7 +58,7 @@
   width: 40px;
   height: 40px;
   margin: 0 auto 16px;
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-top-color: var(--primary-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -66,80 +70,79 @@
 
 .story-ended-message {
   text-align: center;
-  padding: 40px 24px;
+  padding: 36px 24px;
   color: var(--text-secondary);
-  font-family: 'Crimson Text', Georgia, serif;
-  font-size: 18px;
-  background: var(--bg-parchment);
-  border: 1px solid var(--border-color);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+  border-radius: 16px;
+  border: none;
 }
 
 .story-ended-message::before {
-  content: '~ Finis ~';
+  content: '\2728 The End \2728';
   display: block;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 24px;
-  color: var(--secondary-color);
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 22px;
+  color: #065F46;
   margin-bottom: 12px;
-  font-style: italic;
 }
 
 .word-input-form {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .word-input-group {
   display: flex;
-  gap: 14px;
+  gap: 12px;
 }
 
 .word-input {
   flex: 1;
-  font-family: 'Crimson Text', Georgia, serif;
-  font-size: 20px;
-  padding: 16px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  padding: 14px 20px;
   border: 2px solid var(--border-color);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px;
+  transition: all 0.3s ease;
 }
 
 .word-input:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(139, 69, 19, 0.1);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1);
 }
 
 .word-input::placeholder {
-  font-style: italic;
   color: var(--text-muted);
 }
 
 .word-input-group .btn {
-  padding: 16px 36px;
-  font-size: 16px;
+  padding: 14px 32px;
+  font-size: 15px;
   white-space: nowrap;
 }
 
 .end-story-section {
-  margin-top: 28px;
-  padding-top: 28px;
-  border-top: 1px solid var(--border-color);
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--border-color);
   text-align: center;
 }
 
 .end-story-hint {
-  font-family: 'Crimson Text', Georgia, serif;
-  color: var(--text-secondary);
-  margin-bottom: 14px;
-  font-size: 15px;
-  font-style: italic;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  font-size: 14px;
 }
 
 /* Character count */
 .char-count {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 13px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
   color: var(--text-muted);
   text-align: right;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .char-count.warning {
