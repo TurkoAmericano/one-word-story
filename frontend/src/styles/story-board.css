@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(to right, var(--primary-color), var(--accent-pink), var(--secondary-color));
+  background: linear-gradient(to right, var(--primary-color), var(--accent-moss), var(--secondary-color));
 }
 
 .story-header {
@@ -35,7 +35,7 @@
 .story-header h2 {
   font-family: 'Fredericka the Great', 'Quicksand', cursive;
   font-size: 28px;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-pink) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-moss) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

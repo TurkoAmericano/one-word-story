@@ -22,7 +22,7 @@
 }
 
 .your-turn-banner {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-pink) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-moss) 100%);
   color: white;
   padding: 16px 24px;
   text-align: center;
@@ -32,7 +32,7 @@
   margin-bottom: 20px;
   letter-spacing: 0.02em;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
   position: relative;
 }
 

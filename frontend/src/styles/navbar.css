@@ -1,12 +1,12 @@
 .navbar {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(124, 58, 237, 0.1);
+  box-shadow: 0 2px 20px rgba(5, 150, 105, 0.1);
   padding: 14px 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 2px solid rgba(233, 213, 255, 0.5);
+  border-bottom: 2px solid rgba(167, 243, 208, 0.5);
 }
 
 .navbar-content {
@@ -19,7 +19,7 @@
   font-family: 'Fredericka the Great', 'Quicksand', cursive;
   font-size: 24px;
   font-weight: 400;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-pink) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-moss) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -100,7 +100,7 @@
 }
 
 .navbar .btn:hover {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #9333EA 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #10B981 100%);
   color: white;
   border-color: transparent;
   transform: none;

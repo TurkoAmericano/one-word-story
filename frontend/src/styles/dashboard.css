@@ -15,7 +15,7 @@
 .dashboard-header h1 {
   font-family: 'Quicksand', sans-serif;
   font-size: 36px;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-pink) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-moss) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -28,7 +28,7 @@
   display: block;
   width: 60px;
   height: 3px;
-  background: linear-gradient(to right, var(--primary-color), var(--accent-pink));
+  background: linear-gradient(to right, var(--primary-color), var(--accent-moss));
   margin-top: 10px;
   border-radius: 2px;
 }
