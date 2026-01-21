@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/auth.css';
 
@@ -15,6 +15,10 @@ const Register = () => {
 
   const { register } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Get the redirect path from state (set by PrivateRoute)
+  const from = location.state?.from || '/dashboard';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +38,7 @@ const Register = () => {
 
     try {
       await register(email, username, password);
-      navigate('/dashboard');
+      navigate(from, { replace: true });
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed. Please try again.');
     } finally {
@@ -132,7 +136,7 @@ const Register = () => {
           </form>
 
           <p className="auth-footer">
-            Already have an account? <Link to="/login">Login</Link>
+            Already have an account? <Link to="/login" state={{ from }}>Login</Link>
           </p>
         </div>
       </div>
