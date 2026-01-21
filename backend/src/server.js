@@ -13,8 +13,12 @@ const app = express();
 
 // Security middleware
 app.use(helmet());
+
+// Log CORS config for debugging
+console.log('CORS origin configured for:', config.frontendUrl);
+
 app.use(cors({
-  origin: config.frontendUrl,
+  origin: config.frontendUrl || true,
   credentials: true,
 }));
 
