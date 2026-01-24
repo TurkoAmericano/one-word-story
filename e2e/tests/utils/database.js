@@ -10,8 +10,8 @@ export function getPool() {
       host: process.env.DB_HOST || 'localhost',
       port: process.env.DB_PORT || 5432,
       database: process.env.DB_NAME || 'one_word_story',
-      user: process.env.DB_USER || 'postgres',
-      password: process.env.DB_PASSWORD || 'postgres',
+      user: process.env.DB_USER || 'devuser',
+      password: process.env.DB_PASSWORD || 'devpassword',
     });
   }
   return pool;
