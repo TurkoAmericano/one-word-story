@@ -10,6 +10,7 @@ const Footer = () => {
           <a href="mailto:curtis.erhart@gmail.com">curtis.erhart@gmail.com</a>
         </span>
         <Link to="/privacy-policy" className="footer-link">Privacy Policy</Link>
+        <Link to="/terms-of-service" className="footer-link">Terms of Service</Link>
       </div>
     </footer>
   );
